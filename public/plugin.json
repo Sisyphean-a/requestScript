@@ -1,0 +1,26 @@
+{
+  "main": "index.html",
+  "preload": "preload/services.js",
+  "logo": "logo.png",
+  "development": {
+    "main": "http://localhost:5173"
+  },
+  "features": [
+    {
+      "code": "request",
+      "explain": "发送请求",
+      "cmds": [
+        "请求",
+        "request"
+      ]
+    },
+    {
+      "code": "newReq",
+      "explain": "新增请求",
+      "cmds": [
+        "新增请求",
+        "newReq"
+      ]
+    }
+  ]
+}
