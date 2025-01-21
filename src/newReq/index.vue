@@ -1,7 +1,11 @@
 <template>
   <div class="request-container">
-    <button class="send-request-btn" @click="sendRequest">配置请求</button>
-    <textarea v-model="response" readonly class="response-area"></textarea>
+    <v-btn class="send-request-btn" @click="sendRequest">配置请求</v-btn>
+    <v-textarea
+      v-model="response"
+      readonly
+      auto-grow
+      class="response-area"></v-textarea>
   </div>
 </template>
 
@@ -47,10 +51,7 @@ const sendRequest = async () => {
   }
 
   .response-area {
-    width: calc(100% - 20px);
-    min-height: 300px;
-    padding: 10px;
-    resize: vertical;
+    max-height: 500px;
   }
 }
 </style>

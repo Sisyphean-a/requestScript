@@ -1,11 +1,19 @@
 <template>
   <div class="request-container">
-    <button class="send-request-btn" @click="goNewReq">NEW</button>
+    <v-btn variant="outlined" @click="goNewReq">NEW</v-btn>
     <div class="send-request-btn-container">
-      <button class="send-request-btn-1" @click="sendRequest">请求1</button>
-      <button class="send-request-btn-2" @click="sendRequest">更新</button>
+      <v-btn variant="outlined" class="send-request-btn-1" @click="sendRequest">
+        请求1
+      </v-btn>
+      <v-btn variant="outlined" class="send-request-btn-2" @click="sendRequest">
+        更新
+      </v-btn>
     </div>
-    <textarea v-model="response" readonly class="response-area"></textarea>
+    <v-textarea
+      v-model="response"
+      auto-grow
+      style="max-height: 500px"
+      variant="outlined"></v-textarea>
   </div>
 </template>
 
@@ -63,21 +71,11 @@ const goNewReq = () => {
     display: flex;
     .send-request-btn-1 {
       border-radius: 8px 0 0 8px;
-      background-color: #646464;
-      color: #fff;
+      border-right: none;
     }
     .send-request-btn-2 {
       border-radius: 0 8px 8px 0;
-      background-color: #797979;
-      color: #fff;
     }
-  }
-
-  .response-area {
-    width: calc(100% - 20px);
-    min-height: 300px;
-    padding: 10px;
-    resize: vertical;
   }
 }
 </style>
