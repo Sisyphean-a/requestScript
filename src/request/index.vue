@@ -9,18 +9,15 @@
         更新
       </v-btn>
     </div>
-    <v-textarea
-      v-model="response"
-      auto-grow
-      style="max-height: 500px"
-      variant="outlined"></v-textarea>
+    <json-view :json="response" class="json-view" />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
-import { useUTools } from '../composables/useUTools';
+import { useUTools } from "../composables/useUTools";
+import jsonView from "../components/jsonView.vue";
 
 const response = ref("");
 const { isUTools } = useUTools();
@@ -38,7 +35,7 @@ const sendRequest = async () => {
         },
       },
     });
-    response.value = JSON.stringify(res.data, null, 4);
+    response.value = res.data;
   } catch (err) {
     response.value = "请求失败: " + err.message;
   }
@@ -82,6 +79,13 @@ const goNewReq = () => {
     .send-request-btn-2 {
       border-radius: 0 8px 8px 0;
     }
+  }
+  .json-view {
+    border: thin solid #ababab;
+    padding: 4px;
+    min-height: 200px;
+    max-height: 500px;
+    border-radius: 8px;
   }
 }
 </style>
