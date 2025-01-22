@@ -20,8 +20,10 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import { useUTools } from '../composables/useUTools';
 
 const response = ref("");
+const { isUTools } = useUTools();
 
 const sendRequest = async () => {
   try {
@@ -43,7 +45,11 @@ const sendRequest = async () => {
 };
 
 const goNewReq = () => {
-  utools.redirect("newReq");
+  if (isUTools.value) {
+    utools.redirect("newReq");
+  } else {
+    window.location.hash = "newReq";
+  }
 };
 </script>
 
